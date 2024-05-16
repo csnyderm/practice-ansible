@@ -1,0 +1,13 @@
+plugin: amazon.aws.aws_ec2
+
+regions:
+- us-east-1
+
+include_filters:
+- tag:aws:cloudformation:stack-name:
+    - 'cs-k8s'
+
+groups:
+  Node01: "'Node01' in tags.Name"
+  Node02: "'Node02' in tags.Name"
+  Controlplane: "'Controlplane' in tags.Name"
